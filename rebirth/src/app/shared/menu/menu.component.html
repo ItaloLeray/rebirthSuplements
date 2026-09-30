@@ -1,1 +1,25 @@
-<p>menu works!</p>
+<nav class="navbar">
+    <div class="navbar-container">
+
+        <div class="navbar-esquerda">
+            <a class="navbar-logo" routerLink="/">Rebirth Supplements</a>
+
+            <ul class="navbar-list">
+                @for (item of itensMenu; track item.label) {
+                <li class="navbar-item">
+                    <a [routerLink]="item.link">{{ item.label }}</a>
+                </li>
+                }
+            </ul>
+        </div>
+
+        <div class="navbar-acoes">
+            <a routerLink="/ajuda">Ajuda</a>
+            <a routerLink="/login">Login</a>
+            <a routerLink="/carrinho">
+                <img class="carrinho" src="/carrinho.png" alt="Carrinho">
+            </a>
+        </div>
+
+    </div>
+</nav>
