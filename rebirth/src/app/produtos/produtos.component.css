@@ -1,0 +1,38 @@
+.pagina-produtos {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.categorias {
+  background-color: #111;
+  padding: 18px;
+  text-align: center;
+}
+
+.categorias a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.categorias a:hover {
+  color: #ff6600;
+}
+
+.inicio-produtos {
+  text-align: center;
+  padding: 40px 20px 25px;
+}
+
+.inicio-produtos h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.inicio-produtos p {
+  color: #555;
+  font-size: 16px;
+}
