@@ -1,8 +1,7 @@
 .navbar {
-    padding: 5px 26px;
+    padding: 5px 30px;
     background: #000000;
-    color: #0055b8;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .navbar-container {
@@ -25,17 +24,11 @@
     list-style: none;
 }
 
-.navbar-logo,
 .navbar a {
     color: #ff6600;
     font-size: 15px;
     font-weight: 600;
-    letter-spacing: -0.2px;
     text-decoration: none;
-}
-
-.navbar-logo {
-    font-size: 16px;
 }
 
 .navbar-acoes {
@@ -52,4 +45,16 @@
     margin: 0;
     height: 100px;
     width: 300px;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+}
+
+.carrinho:hover {
+    opacity: 0.7;
+}
+
+.navbar-logo img:hover {
+    opacity: 0.7;
 }

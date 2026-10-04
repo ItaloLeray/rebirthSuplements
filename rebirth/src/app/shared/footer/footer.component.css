@@ -1,5 +1,5 @@
 .footer {
-    padding: 20px;
+    padding: 10px;
     background-color: #000000;
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
@@ -11,10 +11,10 @@
 }
 
 .footer-logo {
-    margin: 0 0 30px;
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    margin: 0px;
+    padding: 0px;
+    height: 100px;
+    width: 300px;
 }
 
 .footer-categorias {
@@ -29,14 +29,14 @@
 }
 
 .footer h2 {
-    margin: 0 0 15px;
+    margin: 0 0 10px;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 7500px;
 }
 
 .footer a {
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
     color: #dbeafe;
     font-size: 15px;
     line-height: 1.4;
