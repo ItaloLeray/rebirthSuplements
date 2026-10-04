@@ -1,70 +1,262 @@
 <main class="pagina-produtos">
 
-    <!-- Categorias dos produtos -->
     <nav class="categorias">
-        <a href="#">Todos</a>
-        <a href="#">Whey Protein</a>
-        <a href="#">Creatina</a>
-        <a href="#">Pré-Treino</a>
-        <a href="#">Hipercalórico</a>
+
+        <button
+            (click)="filtrar('todos')"
+            [class.ativo]="categoriaSelecionada === 'todos'">
+            Todos
+        </button>
+
+        <button
+            (click)="filtrar('whey')"
+            [class.ativo]="categoriaSelecionada === 'whey'">
+            Whey Protein
+        </button>
+
+        <button
+            (click)="filtrar('creatina')"
+            [class.ativo]="categoriaSelecionada === 'creatina'">
+            Creatina
+        </button>
+
+        <button
+            (click)="filtrar('pre-treino')"
+            [class.ativo]="categoriaSelecionada === 'pre-treino'">
+            Pré-Treino
+        </button>
+
+        <button
+            (click)="filtrar('hipercalorico')"
+            [class.ativo]="categoriaSelecionada === 'hipercalorico'">
+            Hipercalórico
+        </button>
+
+        <button
+            (click)="filtrar('acessorios')"
+            [class.ativo]="categoriaSelecionada === 'acessorios'">
+            Acessórios
+        </button>
+
     </nav>
 
-    <!-- Título da página -->
+
+    <!-- Cabeçalho -->
     <section class="inicio-produtos">
+
         <h1>Nossos Produtos</h1>
+
         <p>
             Encontre suplementos para acompanhar seus objetivos
             e melhorar sua rotina de treinos.
         </p>
-    </section>
-
-    <!-- Lista de produtos -->
-    <section class="lista-produtos">
-
-        <div class="produto">
-            <div class="imagem-produto">
-                <p>Imagem Whey</p>
-            </div>
-
-            <h2>Whey Protein Rebirth</h2>
-            <p class="categoria-produto">Whey Protein</p>
-            <p class="preco">R$ 119,90</p>
-            <button>Adicionar ao carrinho</button>
-        </div>
-
-        <div class="produto">
-            <div class="imagem-produto">
-                <p>Imagem Creatina</p>
-            </div>
-
-            <h2>Creatina Rebirth</h2>
-            <p class="categoria-produto">Creatina</p>
-            <p class="preco">R$ 79,90</p>
-            <button>Adicionar ao carrinho</button>
-        </div>
-
-        <div class="produto">
-            <div class="imagem-produto">
-                <p>Imagem Pré-Treino</p>
-            </div>
-
-            <h2>Pré-Treino Rebirth</h2>
-            <p class="categoria-produto">Pré-Treino</p>
-            <p class="preco">R$ 89,90</p>
-            <button>Adicionar ao carrinho</button>
-        </div>
-
-        <div class="produto">
-            <div class="imagem-produto">
-                <p>Imagem Hipercalórico</p>
-            </div>
-
-            <h2>Hipercalórico Rebirth</h2>
-            <p class="categoria-produto">Hipercalórico</p>
-            <p class="preco">R$ 99,90</p>
-            <button>Adicionar ao carrinho</button>
-        </div>
 
     </section>
+
+
+    <!-- SUPLEMENTOS -->
+    @if (categoriaSelecionada !== 'acessorios') {
+
+        <section class="secao-produtos">
+
+            <h2 class="titulo-secao">Suplementos</h2>
+
+            <div class="lista-produtos">
+
+
+                <!-- Whey -->
+                @if (categoriaSelecionada === 'todos' || categoriaSelecionada === 'whey') {
+
+                    <div class="produto">
+
+                        <div class="imagem-produto">
+                            <img
+                                src="/produtos/wheyrebirth.png"
+                                alt="Whey Protein Rebirth">
+                        </div>
+
+                        <h2>Whey Protein Rebirth</h2>
+
+                        <p class="categoria-produto">
+                            Whey Protein
+                        </p>
+
+                        <p class="preco">
+                            R$ 119,90
+                        </p>
+
+                        <button class="botao-carrinho">
+                            Adicionar ao carrinho
+                        </button>
+
+                    </div>
+
+                }
+
+
+                <!-- Creatina -->
+                @if (categoriaSelecionada === 'todos' || categoriaSelecionada === 'creatina') {
+
+                    <div class="produto">
+
+                        <div class="imagem-produto">
+                            <img
+                                src="/produtos/creatinarebirth.png"
+                                alt="Creatina Rebirth">
+                        </div>
+
+                        <h2>Creatina Rebirth</h2>
+
+                        <p class="categoria-produto">
+                            Creatina
+                        </p>
+
+                        <p class="preco">
+                            R$ 79,90
+                        </p>
+
+                        <button class="botao-carrinho">
+                            Adicionar ao carrinho
+                        </button>
+
+                    </div>
+
+                }
+
+
+                <!-- Pré-Treino -->
+                @if (categoriaSelecionada === 'todos' || categoriaSelecionada === 'pre-treino') {
+
+                    <div class="produto">
+
+                        <div class="imagem-produto">
+                            <img
+                                src="/produtos/pretreinorebirth.png"
+                                alt="Pré-Treino Rebirth">
+                        </div>
+
+                        <h2>Pré-Treino Rebirth</h2>
+
+                        <p class="categoria-produto">
+                            Pré-Treino
+                        </p>
+
+                        <p class="preco">
+                            R$ 89,90
+                        </p>
+
+                        <button class="botao-carrinho">
+                            Adicionar ao carrinho
+                        </button>
+
+                    </div>
+
+                }
+
+
+                <!-- Hipercalórico -->
+                @if (categoriaSelecionada === 'todos' || categoriaSelecionada === 'hipercalorico') {
+
+                    <div class="produto">
+
+                        <div class="imagem-produto">
+                            <img
+                                src="/produtos/hipercaloricorebirth.png"
+                                alt="Hipercalórico Rebirth">
+                        </div>
+
+                        <h2>Hipercalórico Rebirth</h2>
+
+                        <p class="categoria-produto">
+                            Hipercalórico
+                        </p>
+
+                        <p class="preco">
+                            R$ 99,90
+                        </p>
+
+                        <button class="botao-carrinho">
+                            Adicionar ao carrinho
+                        </button>
+
+                    </div>
+
+                }
+
+            </div>
+
+        </section>
+
+    }
+
+
+    <!-- ACESSÓRIOS -->
+    @if (categoriaSelecionada === 'todos' || categoriaSelecionada === 'acessorios') {
+
+        <section class="secao-acessorios">
+
+            <h2 class="titulo-secao">
+                Acessórios Rebirth
+            </h2>
+
+            <div class="lista-acessorios">
+
+
+                <!-- Garrafa -->
+                <div class="produto">
+
+                    <div class="imagem-produto">
+                        <img
+                            src="/produtos/garrafarebirth.png"
+                            alt="Garrafa Rebirth">
+                    </div>
+
+                    <h2>Garrafa Rebirth</h2>
+
+                    <p class="categoria-produto">
+                        Acessórios
+                    </p>
+
+                    <p class="preco">
+                        R$ 39,90
+                    </p>
+
+                    <button class="botao-carrinho">
+                        Adicionar ao carrinho
+                    </button>
+
+                </div>
+
+
+                <!-- Camiseta -->
+                <div class="produto">
+
+                    <div class="imagem-produto">
+                        <img
+                            src="/produtos/camisetarebirth.png"
+                            alt="Camiseta Rebirth">
+                    </div>
+
+                    <h2>Camiseta Rebirth</h2>
+
+                    <p class="categoria-produto">
+                        Vestuário
+                    </p>
+
+                    <p class="preco">
+                        R$ 69,90
+                    </p>
+
+                    <button class="botao-carrinho">
+                        Adicionar ao carrinho
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    }
 
 </main>

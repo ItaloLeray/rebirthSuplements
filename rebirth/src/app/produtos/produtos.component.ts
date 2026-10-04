@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-produtos',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './produtos.component.html',
-  styleUrls: ['./produtos.component.css']
+  styleUrl: './produtos.component.css'
 })
 export class ProdutosComponent {
+
+  categoriaSelecionada: string = 'todos';
+
+  filtrar(categoria: string) {
+    this.categoriaSelecionada = categoria;
+  }
 
 }
