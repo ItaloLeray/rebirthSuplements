@@ -1,32 +1,26 @@
 <div class="login">
-
-    <h1>Login</h1>
-
-    <label for="login">E-mail</label>
-
-    <input
-        id="login"
-        type="email"
-        [(ngModel)]="login"
-        (ngModelChange)="validarFormulario()"
-        placeholder="Digite seu e-mail"
-    >
-
-    <label for="senha">Senha</label>
-
-    <input
-        id="senha"
-        type="password"
-        [(ngModel)]="senha"
-        (ngModelChange)="validarFormulario()"
-        placeholder="Digite sua senha"
-    >
-
-    <button
-        type="button"
-        [disabled]="botaoDesabilitado"
-        (click)="fazerLogin()">
-        Entrar
-    </button>
-
+    
+        <h1>Login</h1>
+        <label for="login">E-mail</label>
+        <input
+            id="login"
+            type="email"
+            [(ngModel)]="login"
+            (ngModelChange)="validarFormulario()"
+            placeholder="Digite seu e-mail"
+        >
+        <label for="senha">Senha</label>
+        <input
+            id="senha"
+            type="password"
+            [(ngModel)]="senha"
+            (ngModelChange)="validarFormulario()"
+            placeholder="Digite sua senha"
+        >
+        <button
+            type="button"
+            [disabled]="botaoDesabilitado"
+            (click)="fazerLogin()">
+            Entrar
+        </button>
 </div>
