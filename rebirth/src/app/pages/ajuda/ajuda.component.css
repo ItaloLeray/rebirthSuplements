@@ -1,0 +1,118 @@
+.ajuda-wrapper {
+  background-color: #080808;
+  color: #ffffff;
+  padding: 60px 20px;
+  min-height: 60vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ajuda-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.ajuda-header h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.ajuda-header p {
+  color: #aaaaaa;
+  font-size: 1.2rem;
+}
+
+.destaque {
+  color: #ff5500;
+  font-weight: bold;
+}
+
+.ajuda-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.faq-section h2, .contato-section h2 {
+  color: #ff5500;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  border-left: 4px solid #ff5500;
+  padding-left: 15px;
+}
+
+.faq-section {
+  flex: 2;
+  min-width: 300px;
+}
+
+.faq-item {
+  background-color: #121212;
+  border: 1px solid #222222;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: #ff5500;
+}
+
+.faq-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.faq-item p {
+  color: #cccccc;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.contato-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.card-contato {
+  background-color: #121212;
+  border: 1px solid #222222;
+  border-top: 3px solid #ff5500;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.card-contato p {
+  color: #cccccc;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.card-contato strong {
+  color: #ffffff;
+}
+
+.btn-contato {
+  width: 100%;
+  padding: 15px;
+  background-color: #ff5500;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.btn-contato:hover {
+  background-color: #e64d00;
+  transform: translateY(-2px);
+}
