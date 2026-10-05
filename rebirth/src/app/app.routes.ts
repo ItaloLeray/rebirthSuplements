@@ -6,5 +6,5 @@ import { SobreComponent } from './pages/sobre/sobre.component';
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'produtos', component: ProdutosComponent },
-    { path: 'sobre', component: SobreComponent}
+    { path: 'sobre', component: SobreComponent }
 ];
