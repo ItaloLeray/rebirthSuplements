@@ -12,6 +12,5 @@ export class MenuComponent {
   itensMenu = [
     { label: 'Produtos', link: '/produtos' },
     { label: 'Sobre', link: '/sobre' },
-    { label: 'Ajuda', link: '/ajuda' }
   ]
 }
