@@ -1,0 +1,142 @@
+<main class="pagina-adm">
+
+    <section class="perfil-adm">
+
+        <div class="foto-perfil">
+            <img src="/mascoterebirth.png" alt="Mascote Rebirth">
+        </div>
+
+        <div class="dados-adm">
+            <h2>ADMINISTRADOR</h2>
+            <p>PAINEL DE CONTROLE</p>
+        </div>
+
+        <button class="botao-sair" routerLink="/">SAIR</button>
+
+    </section>
+
+
+    <section class="cabecalho-adm">
+        <h1>PAINEL ADMINISTRATIVO</h1>
+        <p>GERENCIE OS PRODUTOS DA REBIRTH SUPPLEMENTS</p>
+    </section>
+
+    <section class="dashboard">
+
+        <div class="card-dashboard">
+            <p>PRODUTOS</p>
+            <h2>3</h2>
+            <span>Produtos cadastrados</span>
+        </div>
+
+        <div class="card-dashboard">
+            <p>ESTOQUE TOTAL</p>
+            <h2>70</h2>
+            <span>Unidades disponíveis</span>
+        </div>
+
+        <div class="card-dashboard">
+            <p>CATEGORIAS</p>
+            <h2>3</h2>
+            <span>Categorias cadastradas</span>
+        </div>
+
+    </section>
+
+    <section class="area-cadastro">
+
+        <h2>CADASTRAR PRODUTO</h2>
+
+        <div class="formulario-produto">
+
+            <div class="campo">
+                <label>NOME DO PRODUTO</label>
+                <input type="text" placeholder="Ex: Whey Protein Rebirth">
+            </div>
+
+            <div class="campo">
+                <label>CATEGORIA</label>
+
+                <select>
+                    <option>Whey Protein</option>
+                    <option>Creatina</option>
+                    <option>Pré-Treino</option>
+                    <option>Hipercalórico</option>
+                    <option>Acessórios</option>
+                    <option>Vestuário</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label>PREÇO</label>
+                <input type="number" placeholder="Ex: 119,90">
+            </div>
+
+            <div class="campo">
+                <label>ESTOQUE</label>
+                <input type="number" placeholder="Ex: 20">
+            </div>
+
+        </div>
+
+        <button class="botao-cadastrar">
+            CADASTRAR PRODUTO
+        </button>
+
+    </section>
+
+    <section class="area-produtos">
+
+        <h2>PRODUTOS CADASTRADOS</h2>
+
+        <div class="tabela-produtos">
+
+            <div class="cabecalho-tabela">
+                <span>PRODUTO</span>
+                <span>CATEGORIA</span>
+                <span>PREÇO</span>
+                <span>ESTOQUE</span>
+                <span>AÇÕES</span>
+            </div>
+
+            <div class="linha-produto">
+                <span>Whey Protein Rebirth</span>
+                <span>Whey Protein</span>
+                <span>R$ 119,90</span>
+                <span>20</span>
+
+                <div class="acoes">
+                    <button class="botao-editar">EDITAR</button>
+                    <button class="botao-excluir">EXCLUIR</button>
+                </div>
+            </div>
+
+            <div class="linha-produto">
+                <span>Creatina Rebirth</span>
+                <span>Creatina</span>
+                <span>R$ 79,90</span>
+                <span>35</span>
+
+                <div class="acoes">
+                    <button class="botao-editar">EDITAR</button>
+                    <button class="botao-excluir">EXCLUIR</button>
+                </div>
+            </div>
+
+            <div class="linha-produto">
+                <span>Pré-Treino Rebirth</span>
+                <span>Pré-Treino</span>
+                <span>R$ 89,90</span>
+                <span>15</span>
+
+                <div class="acoes">
+                    <button class="botao-editar">EDITAR</button>
+                    <button class="botao-excluir">EXCLUIR</button>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
