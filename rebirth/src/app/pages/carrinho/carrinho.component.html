@@ -1,0 +1,167 @@
+<main class="carrinho">
+
+    <div class="page-title">
+        Seu carrinho
+    </div>
+
+    <div class="content">
+
+        <section class="produtos-carrinho">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                        <th>Total</th>
+                        <th>-</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @for (produto of produtos; track produto.nome) {
+
+                        <tr>
+
+                            <td>
+                                <div class="produto">
+
+                                    <img
+                                        [src]="produto.imagem"
+                                        [alt]="produto.nome"
+                                    >
+
+                                    <div class="info">
+
+                                        <div class="name">
+                                            {{ produto.nome }}
+                                        </div>
+
+                                        <div class="category">
+                                            {{ produto.categoria }}
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </td>
+
+                            <td>
+
+                                <div class="qty">
+
+                                    <button
+                                        type="button"
+                                        (click)="diminuirQuantidade(produto)">
+                                        −
+                                    </button>
+
+                                    <span>
+                                        {{ produto.quantidade }}
+                                    </span>
+
+                                    <button
+                                        type="button"
+                                        (click)="aumentarQuantidade(produto)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+                                {{ produto.preco | currency:'BRL' }}
+                            </td>
+
+                            <td>
+                                {{ calcularTotalProduto(produto) | currency:'BRL' }}
+                            </td>
+
+                            <td>
+
+                                <button
+                                    type="button"
+                                    class="remove"
+                                    (click)="removerProduto(produto)">
+                                    ×
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    }
+
+                </tbody>
+
+            </table>
+
+            @if (produtos.length === 0) {
+
+                <div class="carrinho-vazio">
+                    Seu carrinho está vazio.
+                </div>
+
+            }
+
+        </section>
+
+
+        <aside>
+
+            <div class="box">
+
+                <header>
+                    Resumo da Compra
+                </header>
+
+                <div class="info">
+
+                    <div>
+                        <span>Subtotal</span>
+
+                        <span>
+                            {{ calcularSubtotal() | currency:'BRL' }}
+                        </span>
+                    </div>
+
+                    <div>
+                        <span>Frete</span>
+
+                        <span class="frete">
+                            Gratuito
+                        </span>
+                    </div>
+
+                </div>
+
+                <footer>
+
+                    <span>Total:</span>
+
+                    <strong>
+                        {{ calcularSubtotal() | currency:'BRL' }}
+                    </strong>
+
+                </footer>
+
+            </div>
+
+            <button
+                type="button"
+                class="finalizar"
+                (click)="finalizarCompra()">
+
+                Finalizar Compra
+
+            </button>
+
+        </aside>
+
+    </div>
+
+</main>
