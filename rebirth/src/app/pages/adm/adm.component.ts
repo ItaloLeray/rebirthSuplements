@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ClienteService } from '../../services/cliente.service';
+import { Cliente } from '../../model/cliente';
 
 @Component({
   selector: 'app-adm',
@@ -8,5 +10,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './adm.component.css'
 })
 export class AdmComponent {
+    
 
 }

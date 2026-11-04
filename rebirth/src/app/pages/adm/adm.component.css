@@ -196,3 +196,36 @@
 .botao-excluir {
     background-color: #222;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #ffffff;
+}
+
+th {
+    padding: 16px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+}
+
+td {
+    padding: 16px;
+    color: #000000;
+    font-size: 15px;
+    border-bottom: 1px solid #000000;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: #000000;
+}
