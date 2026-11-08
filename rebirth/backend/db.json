@@ -1,9 +1,15 @@
 {
-    
-    "clientes": [
-    ],
-    "produto": [
-    ],
-    "carrinho": [
-    ]
+  "clientes": [
+    {
+      "cpf": "34655645454",
+      "nome": "douglas",
+      "sobrenome": "daeaea",
+      "dataNascimento": "2004-05-18",
+      "email": "ffcrzx@gmail.com",
+      "senha": "123456",
+      "id": 1
+    }
+  ],
+  "produto": [],
+  "carrinho": []
 }

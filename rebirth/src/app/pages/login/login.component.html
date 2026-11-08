@@ -9,6 +9,7 @@
             (ngModelChange)="validarFormulario()"
             placeholder="Digite seu e-mail"
         >
+        
         <label for="senha">Senha</label>
         <input
             id="senha"
@@ -17,6 +18,7 @@
             (ngModelChange)="validarFormulario()"
             placeholder="Digite sua senha"
         >
+        <a routerLink="/cadastro">Ainda não tem conta? Cadastre-se</a>
         <button
             type="button"
             [disabled]="botaoDesabilitado"

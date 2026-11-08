@@ -68,3 +68,13 @@
     background-color: #555555;
     cursor: not-allowed;
 }
+.login a {
+    color: #ff6600;
+    font-size: 14px;
+    text-align: left;
+    text-decoration: none;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
