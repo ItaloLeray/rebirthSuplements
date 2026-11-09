@@ -11,5 +11,26 @@ import { Cliente } from '../../model/cliente';
 })
 export class AdmComponent {
     
+  private clienteService = inject(ClienteService);
+
+  clientes: Cliente[] = [];
+  erroClientes: boolean = false;
+
+  ngOnInit(): void {
+    this.carregarClientes();
+  }
+
+  carregarClientes(): void {
+    this.clienteService.listar().subscribe({
+      next: (lista) => {
+        this.clientes = lista;
+        this.erroClientes = false;
+      },
+      error: () => {
+        this.clientes = [];
+        this.erroClientes = true;
+      }
+    });
+  }
 
 }
