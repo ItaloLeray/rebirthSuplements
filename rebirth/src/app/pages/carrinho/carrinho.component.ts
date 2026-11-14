@@ -21,6 +21,11 @@ export class CarrinhoComponent implements OnInit {
   }
 
   carregarProdutos(): void {
+    if (typeof localStorage === 'undefined') {
+      this.erro = 'O carrinho só pode ser acessado pelo navegador.';
+      return;
+    }
+
     const idCliente = localStorage.getItem('idCliente');
 
     if (!idCliente) {
