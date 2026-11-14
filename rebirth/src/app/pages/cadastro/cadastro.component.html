@@ -1,0 +1,32 @@
+<form class="cadastro" #form="ngForm" (ngSubmit)="cadastrar()">
+  <h1>Cadastro</h1>
+
+  <label for="nome">Nome</label>
+  <input id="nome" name="nome" [(ngModel)]="cliente.nome" required #nome="ngModel">
+  @if (nome.invalid && nome.touched) { <small>Informe o nome.</small> }
+
+  <label for="sobrenome">Sobrenome</label>
+  <input id="sobrenome" name="sobrenome" [(ngModel)]="cliente.sobrenome" required>
+
+  <label for="cpf">CPF</label>
+  <input id="cpf" name="cpf" [(ngModel)]="cliente.cpf"
+         required pattern="[0-9]{11}" maxlength="11" #cpf="ngModel"
+         placeholder="Somente números">
+  @if (cpf.invalid && cpf.touched) { <small>CPF deve ter 11 números.</small> }
+
+  <label for="data">Data de nascimento</label>
+  <input id="data" name="dataNascimento" type="date"
+         [(ngModel)]="cliente.dataNascimento" required>
+
+  <label for="email">E-mail</label>
+  <input id="email" name="email" type="email"
+         [(ngModel)]="cliente.email" required email #email="ngModel">
+  @if (email.invalid && email.touched) { <small>E-mail inválido.</small> }
+
+  <label for="senha">Senha</label>
+  <input id="senha" name="senha" type="password"
+         [(ngModel)]="cliente.senha" required minlength="6" #senha="ngModel">
+  @if (senha.invalid && senha.touched) { <small>Mínimo de 6 caracteres.</small> }
+
+  <button type="submit" [disabled]="form.invalid">Cadastrar</button>
+</form>

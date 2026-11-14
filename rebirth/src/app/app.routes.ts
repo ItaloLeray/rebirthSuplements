@@ -6,6 +6,7 @@ import { AjudaComponent } from './pages/ajuda/ajuda.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AdmComponent } from './pages/adm/adm.component';
 import { CarrinhoComponent } from './pages/carrinho/carrinho.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -13,7 +14,7 @@ export const routes: Routes = [
     { path: 'sobre', component: SobreComponent },
     { path: 'ajuda', component: AjudaComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'cadastro', component: CadastroComponent },
     { path: 'adm', component: AdmComponent },
-    { path:'carrinho', component: CarrinhoComponent }
+    { path: 'carrinho', component: CarrinhoComponent }
 ];
-
