@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ClienteService } from '../../services/cliente.service';
 
 @Component({
   selector: 'app-login',
@@ -9,45 +10,42 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  private clienteService = inject(ClienteService);
 
   constructor(private router: Router) {}
 
   login: string = '';
   senha: string = '';
-
   botaoDesabilitado: boolean = true;
 
-  validarFormulario() {
-    if (
-      this.login.trim() !== '' &&
-      this.senha.trim() !== ''
-    ) {
-      this.botaoDesabilitado = false;
-    } else {
-      this.botaoDesabilitado = true;
-    }
+  validarFormulario(): void {
+    this.botaoDesabilitado = this.login.trim() === '' || this.senha.trim() === '';
   }
 
-  fazerLogin() {
-
-    if (
-      this.login === 'admin@rebirth.com' &&
-      this.senha === 'Admin@123'
-    ) {
+  fazerLogin(): void {
+    if (this.login === 'admin@rebirth.com' && this.senha === 'Admin@123') {
       alert('Bem-vindo Administrador!');
       this.router.navigate(['/adm']);
       return;
     }
 
-    if (
-      this.login.trim() !== '' &&
-      this.senha.trim() !== ''
-    ) {
-      alert('Login realizado com sucesso!');
-      this.router.navigate(['/']);
-      return;
-    }
+    this.clienteService.listar().subscribe({
+      next: (clientes) => {
+        const cliente = clientes.find(c =>
+          c.email.toLowerCase() === this.login.trim().toLowerCase() &&
+          c.senha === this.senha
+        );
 
-    alert('Preencha os campos.');
+        if (!cliente || !cliente.id) {
+          alert('E-mail ou senha inválidos.');
+          return;
+        }
+
+        localStorage.setItem('idCliente', cliente.id);
+        alert('Login realizado com sucesso!');
+        this.router.navigate(['/']);
+      },
+      error: () => alert('Não foi possível realizar o login. Verifique se o servidor está funcionando.')
+    });
   }
 }
