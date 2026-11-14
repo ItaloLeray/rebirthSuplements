@@ -1,7 +1,9 @@
 export interface Carrinho {
-    idCarrinho?: string;
+    id?: string;
+    idCliente: string;
     nome: string;
-    quantidade: string;
-    preco: string;
-    total: string;
+    categoria: string;
+    imagem?: string;
+    quantidade: number;
+    preco: number;
 }
