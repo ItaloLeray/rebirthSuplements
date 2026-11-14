@@ -1,0 +1,57 @@
+<main class="pagina-carrinho">
+
+    <section class="inicio-carrinho">
+        <h1>MEU CARRINHO</h1>
+
+        <p>
+            Confira os produtos adicionados ao seu carrinho.
+        </p>
+    </section>
+
+    <section class="tabela-carrinho">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>PRODUTO</th>
+                    <th>CATEGORIA</th>
+                    <th>QUANTIDADE</th>
+                    <th>PREÇO</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @for (produto of produtos; track produto.id) {
+                    <tr>
+                        <td>{{ produto.id }}</td>
+                        <td>{{ produto.nome }}</td>
+                        <td>{{ produto.categoria }}</td>
+                        <td>{{ produto.quantidade }}</td>
+                        <td>{{ produto.preco | currency:'BRL' }}</td>
+                        <td>
+                            <button (click)="remover(produto.id)">
+                                REMOVER
+                            </button>
+                        </td>
+                    </tr>
+                }
+
+                @if (produtos.length === 0) {
+                    <tr>
+                        <td colspan="6">
+                            SEU CARRINHO ESTÁ VAZIO.
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>

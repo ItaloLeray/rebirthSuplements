@@ -1,4 +1,6 @@
+
 import { Component } from '@angular/core';
+import { CarrinhoService } from '../shared/carrinho.service';
 
 @Component({
   selector: 'app-produtos',
@@ -8,6 +10,13 @@ import { Component } from '@angular/core';
 })
 
 export class ProdutosComponent {
+
+  constructor(private carrinhoService: CarrinhoService) {}
+
+  adicionarCarrinho(produto: any) {
+    this.carrinhoService.adicionar(produto);
+    alert('Produto adicionado ao carrinho!');
+  }
 
   filtrar(categoria: string) {
 
