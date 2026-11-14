@@ -229,3 +229,12 @@ tbody tr:last-child td {
 tbody tr:hover {
     background-color: #000000;
 }
+
+tbody tr:hover td {
+    color: #ffffff;
+}
+
+.sem-dados {
+    text-align: center;
+    color: #777;
+}
