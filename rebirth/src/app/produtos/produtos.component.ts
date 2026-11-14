@@ -1,9 +1,11 @@
-
 import { Component } from '@angular/core';
 import { CarrinhoService } from '../shared/carrinho.service';
+import { Carrinho } from '../model/carrinho';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-produtos',
+  standalone: true,
   imports: [],
   templateUrl: './produtos.component.html',
   styleUrl: './produtos.component.css'
@@ -11,11 +13,37 @@ import { CarrinhoService } from '../shared/carrinho.service';
 
 export class ProdutosComponent {
 
-  constructor(private carrinhoService: CarrinhoService) {}
+  constructor(
+    private carrinhoService: CarrinhoService,
+    private router: Router
+  ) {}
 
   adicionarCarrinho(produto: any) {
-    this.carrinhoService.adicionar(produto);
-    alert('Produto adicionado ao carrinho!');
+
+    const idCliente = localStorage.getItem('idCliente');
+
+    if (!idCliente) {
+      alert('Faça login antes de adicionar produtos ao carrinho.');
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    const item: Carrinho = {
+      idCliente: idCliente,
+      nome: produto.nome,
+      categoria: produto.categoria,
+      quantidade: produto.quantidade,
+      preco: produto.preco
+    };
+
+    this.carrinhoService.adicionar(item).subscribe({
+      next: () => {
+        alert('Produto adicionado ao carrinho!');
+      },
+      error: () => {
+        alert('Não foi possível adicionar o produto.');
+      }
+    });
   }
 
   filtrar(categoria: string) {

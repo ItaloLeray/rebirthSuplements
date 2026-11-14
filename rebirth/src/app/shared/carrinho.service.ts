@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Carrinho } from '../model/carrinho';
 
 @Injectable({
   providedIn: 'root'
@@ -6,18 +9,24 @@ import { Injectable } from '@angular/core';
 
 export class CarrinhoService {
 
-  produtos: any[] = [];
+  private API = 'http://localhost:3000/carrinho';
 
-  adicionar(produto: any) {
-    this.produtos.push(produto);
+  constructor(private http: HttpClient) {}
+
+  adicionar(produto: Carrinho): Observable<Carrinho> {
+    return this.http.post<Carrinho>(this.API, produto);
   }
 
-  listar() {
-    return this.produtos;
+  listar(idCliente: string): Observable<Carrinho[]> {
+    return this.http.get<Carrinho[]>(this.API + '?idCliente=' + idCliente);
   }
 
-  remover(id: number) {
-    this.produtos = this.produtos.filter(produto => produto.id !== id);
+  editar(produto: Carrinho): Observable<Carrinho> {
+    return this.http.put<Carrinho>(this.API + '/' + produto.id, produto);
+  }
+
+  remover(id: string): Observable<void> {
+    return this.http.delete<void>(this.API + '/' + id);
   }
 
 }

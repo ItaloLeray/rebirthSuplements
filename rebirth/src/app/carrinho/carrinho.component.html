@@ -30,10 +30,22 @@
                         <td>{{ produto.id }}</td>
                         <td>{{ produto.nome }}</td>
                         <td>{{ produto.categoria }}</td>
-                        <td>{{ produto.quantidade }}</td>
-                        <td>{{ produto.preco | currency:'BRL' }}</td>
+
                         <td>
-                            <button (click)="remover(produto.id)">
+                            <input
+                                type="number"
+                                [(ngModel)]="produto.quantidade"
+                                min="1">
+                        </td>
+
+                        <td>{{ produto.preco * produto.quantidade | currency:'BRL' }}</td>
+
+                        <td>
+                            <button (click)="produto.id && editar(produto)">
+                                EDITAR
+                            </button>
+
+                            <button (click)="produto.id && remover(produto.id)">
                                 REMOVER
                             </button>
                         </td>
