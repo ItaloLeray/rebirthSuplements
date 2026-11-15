@@ -15,7 +15,6 @@
 
     </section>
 
-
     <section class="cabecalho-adm">
         <h1>PAINEL ADMINISTRATIVO</h1>
         <p>GERENCIE OS PRODUTOS DA REBIRTH SUPPLEMENTS</p>
@@ -23,19 +22,18 @@
 
     <section class="area-cadastro">
 
-        <h2>CADASTRAR PRODUTO</h2>
+        <h2>{{ produtoSelecionado.id ? 'EDITAR PRODUTO' : 'CADASTRAR PRODUTO' }}</h2>
 
         <div class="formulario-produto">
 
             <div class="campo">
                 <label>NOME DO PRODUTO</label>
-                <input type="text" placeholder="Ex: Whey Protein Rebirth">
+                <input type="text" [(ngModel)]="produtoSelecionado.nome" placeholder="Ex: Whey Protein Rebirth">
             </div>
 
             <div class="campo">
                 <label>CATEGORIA</label>
-
-                <select>
+                <select [(ngModel)]="produtoSelecionado.categoria">
                     <option>Whey Protein</option>
                     <option>Creatina</option>
                     <option>Pré-Treino</option>
@@ -47,19 +45,25 @@
 
             <div class="campo">
                 <label>PREÇO</label>
-                <input type="number" placeholder="Ex: 119,90">
+                <input type="number" [(ngModel)]="produtoSelecionado.preco" placeholder="Ex: 119,90">
             </div>
 
             <div class="campo">
                 <label>ESTOQUE</label>
-                <input type="number" placeholder="Ex: 20">
+                <input type="number" [(ngModel)]="produtoSelecionado.quantidade" placeholder="Ex: 20">
             </div>
 
         </div>
 
-        <button class="botao-cadastrar">
-            CADASTRAR PRODUTO
+        <button class="botao-cadastrar" (click)="cadastrarProduto()">
+            {{ produtoSelecionado.id ? 'SALVAR ALTERAÇÕES' : 'CADASTRAR PRODUTO' }}
         </button>
+
+        @if (produtoSelecionado.id) {
+            <button class="botao-editar" (click)="cancelarEdicaoProduto()">
+                CANCELAR EDIÇÃO
+            </button>
+        }
 
     </section>
 
@@ -75,11 +79,28 @@
                     <th>PREÇO PRODUTO</th>
                     <th>CATEGORIA PRODUTO</th>
                     <th>QUANTIDADE PRODUTO</th>
+                    <th>AÇÕES</th>
                 </tr>
             </thead>
 
             <tbody>
-                
+                @for (produto of produtos; track produto.id) {
+                    <tr>
+                        <td>{{ produto.id }}</td>
+                        <td>{{ produto.nome }}</td>
+                        <td>R$ {{ produto.preco }}</td>
+                        <td>{{ produto.categoria }}</td>
+                        <td>{{ produto.quantidade }}</td>
+                        <td>
+                            <button class="botao-editar" (click)="editarProduto(produto)">EDITAR</button>
+                            <button class="botao-excluir" (click)="excluirProduto(produto)">EXCLUIR</button>
+                        </td>
+                    </tr>
+                } @empty {
+                    <tr>
+                        <td colspan="6" class="sem-dados">Nenhum produto cadastrado.</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </section>
@@ -87,6 +108,42 @@
     <section class="area-produtos">
 
         <h2>CLIENTES CADASTRADOS</h2>
+
+        @if (clienteSelecionado) {
+            <section class="area-cadastro">
+                <h2>EDITAR CLIENTE</h2>
+
+                <div class="formulario-produto">
+                    <div class="campo">
+                        <label>NOME</label>
+                        <input type="text" [(ngModel)]="clienteSelecionado.nome">
+                    </div>
+
+                    <div class="campo">
+                        <label>SOBRENOME</label>
+                        <input type="text" [(ngModel)]="clienteSelecionado.sobrenome">
+                    </div>
+
+                    <div class="campo">
+                        <label>CPF</label>
+                        <input type="text" [(ngModel)]="clienteSelecionado.cpf">
+                    </div>
+
+                    <div class="campo">
+                        <label>DATA DE NASCIMENTO</label>
+                        <input type="date" [(ngModel)]="clienteSelecionado.dataNascimento">
+                    </div>
+
+                    <div class="campo">
+                        <label>E-MAIL</label>
+                        <input type="email" [(ngModel)]="clienteSelecionado.email">
+                    </div>
+                </div>
+
+                <button class="botao-cadastrar" (click)="salvarCliente()">SALVAR ALTERAÇÕES</button>
+                <button class="botao-editar" (click)="cancelarEdicaoCliente()">CANCELAR</button>
+            </section>
+        }
 
         <table>
             <thead>
@@ -96,28 +153,33 @@
                     <th>CPF</th>
                     <th>DATA DE NASCIMENTO</th>
                     <th>E-MAIL</th>
+                    <th>AÇÕES</th>
                 </tr>
             </thead>
 
             <tbody>
                 @for (cliente of clientes; track cliente.id) {
-                <tr>
-                    <td>{{ cliente.id }}</td>
-                    <td>{{ cliente.nome }} {{ cliente.sobrenome }}</td>
-                    <td>{{ cliente.cpf }}</td>
-                    <td>{{ cliente.dataNascimento }}</td>
-                    <td>{{ cliente.email }}</td>
-                </tr>
+                    <tr>
+                        <td>{{ cliente.id }}</td>
+                        <td>{{ cliente.nome }} {{ cliente.sobrenome }}</td>
+                        <td>{{ cliente.cpf }}</td>
+                        <td>{{ cliente.dataNascimento }}</td>
+                        <td>{{ cliente.email }}</td>
+                        <td>
+                            <button class="botao-editar" (click)="editarCliente(cliente)">EDITAR</button>
+                            <button class="botao-excluir" (click)="excluirCliente(cliente)">EXCLUIR</button>
+                        </td>
+                    </tr>
                 } @empty {
-                <tr>
-                    <td colspan="5" class="sem-dados">
-                        @if (erroClientes) {
-                            Não foi possível carregar os clientes. Verifique se o servidor (json-server) está rodando.
-                        } @else {
-                            Nenhum cliente cadastrado.
-                        }
-                    </td>
-                </tr>
+                    <tr>
+                        <td colspan="6" class="sem-dados">
+                            @if (erroClientes) {
+                                Não foi possível carregar os clientes. Verifique se o servidor (json-server) está rodando.
+                            } @else {
+                                Nenhum cliente cadastrado.
+                            }
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
