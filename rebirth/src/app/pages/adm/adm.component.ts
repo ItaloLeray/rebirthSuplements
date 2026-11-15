@@ -98,7 +98,13 @@ export class AdmComponent {
   }
 
   editarProduto(produto: Produto): void {
-    this.produtoSelecionado = { ...produto };
+    this.produtoSelecionado = {
+      id: produto.id,
+      nome: produto.nome,
+      categoria: produto.categoria,
+      preco: produto.preco,
+      quantidade: produto.quantidade
+    };
   }
 
   cancelarEdicaoProduto(): void {
@@ -126,7 +132,15 @@ export class AdmComponent {
   }
 
   editarCliente(cliente: Cliente): void {
-    this.clienteSelecionado = { ...cliente };
+    this.clienteSelecionado = {
+      id: cliente.id,
+      cpf: cliente.cpf,
+      nome: cliente.nome,
+      sobrenome: cliente.sobrenome,
+      dataNascimento: cliente.dataNascimento,
+      email: cliente.email,
+      senha: cliente.senha
+    };
   }
 
   salvarCliente(): void {
