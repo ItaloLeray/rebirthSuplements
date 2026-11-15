@@ -60,7 +60,7 @@
         </button>
 
         @if (produtoSelecionado.id) {
-            <button class="botao-editar" (click)="produtoSelecionado = { nome: '', categoria: 'Whey Protein', preco: '', quantidade: '' }">
+            <button class="botao-editar" (click)="cancelarEdicaoProduto()">
                 CANCELAR EDIÇÃO
             </button>
         }
@@ -93,7 +93,7 @@
                         <td>{{ produto.quantidade }}</td>
                         <td>
                             <button class="botao-editar" (click)="editarProduto(produto)">EDITAR</button>
-                            <button class="botao-excluir" (click)="excluirProduto(produto.id!)">EXCLUIR</button>
+                            <button class="botao-excluir" (click)="excluirProduto(produto)">EXCLUIR</button>
                         </td>
                     </tr>
                 } @empty {
@@ -167,7 +167,7 @@
                         <td>{{ cliente.email }}</td>
                         <td>
                             <button class="botao-editar" (click)="editarCliente(cliente)">EDITAR</button>
-                            <button class="botao-excluir" (click)="excluirCliente(cliente.id!)">EXCLUIR</button>
+                            <button class="botao-excluir" (click)="excluirCliente(cliente)">EXCLUIR</button>
                         </td>
                     </tr>
                 } @empty {
