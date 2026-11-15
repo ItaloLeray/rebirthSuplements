@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ClienteService } from '../../services/cliente.service';
 import { ProdutoService } from '../../services/produto.service';
@@ -16,6 +16,7 @@ export class AdmComponent {
 
   private clienteService = inject(ClienteService);
   private produtoService = inject(ProdutoService);
+  private router = inject(Router);
 
   clientes: Cliente[] = [];
   produtos: Produto[] = [];
@@ -27,8 +28,6 @@ export class AdmComponent {
     preco: '',
     quantidade: ''
   };
-
-  clienteSelecionado: Cliente | null = null;
 
   ngOnInit(): void {
     this.carregarClientes();
@@ -132,35 +131,7 @@ export class AdmComponent {
   }
 
   editarCliente(cliente: Cliente): void {
-    this.clienteSelecionado = {
-      id: cliente.id,
-      cpf: cliente.cpf,
-      nome: cliente.nome,
-      sobrenome: cliente.sobrenome,
-      dataNascimento: cliente.dataNascimento,
-      email: cliente.email,
-      senha: cliente.senha
-    };
-  }
-
-  salvarCliente(): void {
-    if (this.clienteSelecionado) {
-      this.clienteService.editar(this.clienteSelecionado).subscribe({
-        next: () => {
-          alert('Cliente editado com sucesso!');
-          this.clienteSelecionado = null;
-          this.carregarClientes();
-        },
-        error: (erro) => {
-          console.log(erro);
-          alert('Erro ao editar cliente.');
-        }
-      });
-    }
-  }
-
-  cancelarEdicaoCliente(): void {
-    this.clienteSelecionado = null;
+    this.router.navigate(['/cadastro', cliente.id]);
   }
 
   excluirCliente(cliente: Cliente): void {
