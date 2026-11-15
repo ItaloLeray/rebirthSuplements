@@ -101,9 +101,18 @@ export class AdmComponent {
     this.produtoSelecionado = { ...produto };
   }
 
-  excluirProduto(id: string): void {
-    if (confirm('Deseja realmente excluir este produto?')) {
-      this.produtoService.excluir(id).subscribe({
+  cancelarEdicaoProduto(): void {
+    this.produtoSelecionado = {
+      nome: '',
+      categoria: 'Whey Protein',
+      preco: '',
+      quantidade: ''
+    };
+  }
+
+  excluirProduto(produto: Produto): void {
+    if (produto.id && confirm('Deseja realmente excluir este produto?')) {
+      this.produtoService.excluir(produto.id).subscribe({
         next: () => {
           alert('Produto excluído com sucesso!');
           this.carregarProdutos();
@@ -140,9 +149,9 @@ export class AdmComponent {
     this.clienteSelecionado = null;
   }
 
-  excluirCliente(id: string): void {
-    if (confirm('Deseja realmente excluir este cliente?')) {
-      this.clienteService.excluir(id).subscribe({
+  excluirCliente(cliente: Cliente): void {
+    if (cliente.id && confirm('Deseja realmente excluir este cliente?')) {
+      this.clienteService.excluir(cliente.id).subscribe({
         next: () => {
           alert('Cliente excluído com sucesso!');
           this.carregarClientes();
