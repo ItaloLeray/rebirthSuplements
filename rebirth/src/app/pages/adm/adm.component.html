@@ -109,42 +109,6 @@
 
         <h2>CLIENTES CADASTRADOS</h2>
 
-        @if (clienteSelecionado) {
-            <section class="area-cadastro">
-                <h2>EDITAR CLIENTE</h2>
-
-                <div class="formulario-produto">
-                    <div class="campo">
-                        <label>NOME</label>
-                        <input type="text" [(ngModel)]="clienteSelecionado.nome">
-                    </div>
-
-                    <div class="campo">
-                        <label>SOBRENOME</label>
-                        <input type="text" [(ngModel)]="clienteSelecionado.sobrenome">
-                    </div>
-
-                    <div class="campo">
-                        <label>CPF</label>
-                        <input type="text" [(ngModel)]="clienteSelecionado.cpf">
-                    </div>
-
-                    <div class="campo">
-                        <label>DATA DE NASCIMENTO</label>
-                        <input type="date" [(ngModel)]="clienteSelecionado.dataNascimento">
-                    </div>
-
-                    <div class="campo">
-                        <label>E-MAIL</label>
-                        <input type="email" [(ngModel)]="clienteSelecionado.email">
-                    </div>
-                </div>
-
-                <button class="botao-cadastrar" (click)="salvarCliente()">SALVAR ALTERAÇÕES</button>
-                <button class="botao-editar" (click)="cancelarEdicaoCliente()">CANCELAR</button>
-            </section>
-        }
-
         <table>
             <thead>
                 <tr>
