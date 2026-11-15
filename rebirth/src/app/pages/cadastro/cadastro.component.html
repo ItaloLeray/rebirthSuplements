@@ -1,5 +1,5 @@
-<form class="cadastro" #form="ngForm" (ngSubmit)="cadastrar()">
-  <h1>Cadastro</h1>
+<form class="cadastro" #form="ngForm" (ngSubmit)="salvar()">
+  <h1>{{ editando ? 'Editar cadastro' : 'Cadastro' }}</h1>
 
   <label for="nome">Nome</label>
   <input id="nome" name="nome" [(ngModel)]="cliente.nome" required #nome="ngModel">
@@ -28,5 +28,7 @@
          [(ngModel)]="cliente.senha" required minlength="6" #senha="ngModel">
   @if (senha.invalid && senha.touched) { <small>Mínimo de 6 caracteres.</small> }
 
-  <button type="submit" [disabled]="form.invalid">Cadastrar</button>
+  <button type="submit" [disabled]="form.invalid">
+    {{ editando ? 'Salvar alterações' : 'Cadastrar' }}
+  </button>
 </form>
